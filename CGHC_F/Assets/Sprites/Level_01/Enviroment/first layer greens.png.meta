@@ -1,0 +1,565 @@
+fileFormatVersion: 2
+guid: cb54cdd75135f79468909a14865b00be
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: first layer greens_0
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 404
+        width: 217
+        height: 251
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99186a63ba89bb44c89beba5e850df53
+      internalID: -319840932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: first layer greens_1
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 413
+        width: 151
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbd3ce62a67ba214a9a4fbe507eff45c
+      internalID: 727357439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: first layer greens_2
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 429
+        width: 201
+        height: 215
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f022581dcf6701347b9b4c038b1584c7
+      internalID: 1410649868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: first layer greens_3
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 398
+        width: 186
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a5b6b62d76293d49ab05011eec2cbbe
+      internalID: -1997030174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: first layer greens_4
+      rect:
+        serializedVersion: 2
+        x: 1035
+        y: 428
+        width: 173
+        height: 232
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfb962ef1ebcb2c43995f2b21bab15c8
+      internalID: -610369410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: first layer greens_5
+      rect:
+        serializedVersion: 2
+        x: 1236
+        y: 448
+        width: 343
+        height: 215
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90404f2c214c4704ea490ac54b28661f
+      internalID: 1848016037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: first layer greens_6
+      rect:
+        serializedVersion: 2
+        x: 1608
+        y: 497
+        width: 307
+        height: 179
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d07f6a63ef2d494d8e5f7e6ff9a04a7
+      internalID: -1956551112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: first layer greens_7
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 406
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e46590246a42994a8e9a0171b699813
+      internalID: 300717506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: first layer greens_8
+      rect:
+        serializedVersion: 2
+        x: 1234
+        y: 249
+        width: 402
+        height: 207
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -89, y: -100.5}
+        - {x: -201, y: -19.5}
+        - {x: -201, y: 103.5}
+        - {x: 201, y: 103.5}
+        - {x: 201, y: -103.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2c29f00de581ea429e2c849ae342d7f
+      internalID: -1345401047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: first layer greens_9
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 60
+        width: 219
+        height: 308
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6a73b5a37ec63d47b27aeb1d913793f
+      internalID: 1802023042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: first layer greens_10
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 21
+        width: 188
+        height: 378
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd6d33adcfeae454f990febda0dd2213
+      internalID: -1995095028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: first layer greens_11
+      rect:
+        serializedVersion: 2
+        x: 631
+        y: 83
+        width: 169
+        height: 307
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d78510bad351074693b7a67ccbb0679
+      internalID: 2078728421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: first layer greens_12
+      rect:
+        serializedVersion: 2
+        x: 1734
+        y: 349
+        width: 87
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e5eaea6561803e42bbffa1c627e7909
+      internalID: 365803304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: first layer greens_13
+      rect:
+        serializedVersion: 2
+        x: 1633
+        y: 308
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c74d1b6aae9dce45a4054f88af0b894
+      internalID: -1116043749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: first layer greens_14
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 7
+        width: 485
+        height: 271
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -242.5, y: -135.5}
+        - {x: -242.5, y: 135.5}
+        - {x: -57.5, y: 135.5}
+        - {x: 10.5, y: 37.5}
+        - {x: 242.5, y: 45.5}
+        - {x: 242.5, y: -135.5}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c01b7b1001c96be40b81d8df3b96b9f4
+      internalID: 2104220431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: first layer greens_15
+      rect:
+        serializedVersion: 2
+        x: 1722
+        y: 210
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 735bed3e65ea6a249a6065b9d708db08
+      internalID: -1262877075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: first layer greens_16
+      rect:
+        serializedVersion: 2
+        x: 1723
+        y: 151
+        width: 86
+        height: 154
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4418cf2dd4da33244b44d1a240df6f85
+      internalID: -432331239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: first layer greens_17
+      rect:
+        serializedVersion: 2
+        x: 1784
+        y: 140
+        width: 6
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfa55375b011a3a4195472c02c367c97
+      internalID: 124949309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: first layer greens_18
+      rect:
+        serializedVersion: 2
+        x: 746
+        y: 76
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a313d62e503aeab489ee28c58ef09625
+      internalID: -1720523233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: first layer greens_19
+      rect:
+        serializedVersion: 2
+        x: 1740
+        y: 43
+        width: 102
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5d00b1af2156ab40aac2463f46bb427
+      internalID: 1977557683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      first layer greens_0: -319840932
+      first layer greens_1: 727357439
+      first layer greens_10: -1995095028
+      first layer greens_11: 2078728421
+      first layer greens_12: 365803304
+      first layer greens_13: -1116043749
+      first layer greens_14: 2104220431
+      first layer greens_15: -1262877075
+      first layer greens_16: -432331239
+      first layer greens_17: 124949309
+      first layer greens_18: -1720523233
+      first layer greens_19: 1977557683
+      first layer greens_2: 1410649868
+      first layer greens_3: -1997030174
+      first layer greens_4: -610369410
+      first layer greens_5: 1848016037
+      first layer greens_6: -1956551112
+      first layer greens_7: 300717506
+      first layer greens_8: -1345401047
+      first layer greens_9: 1802023042
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags: []
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Bg Blur
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: BG
+    uniqueID: 757666743
+    locked: 0
+  - name: Enviroment_Last
+    uniqueID: 2244875143
+    locked: 0
+  - name: Enviroment_Back
+    uniqueID: 3478942811
+    locked: 0
+  - name: Enviroment_NearBack
+    uniqueID: 3702365073
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Enviroment_Front
+    uniqueID: 1888723103
+    locked: 0
+  - name: Item
+    uniqueID: 3105988761
+    locked: 0
+  - name: Lighting
+    uniqueID: 3368637575
+    locked: 0
+  - name: Character
+    uniqueID: 1462078611
+    locked: 0
+  - name: NearFront
+    uniqueID: 755748331
+    locked: 0
+  - name: Front
+    uniqueID: 3081937947
+    locked: 0
