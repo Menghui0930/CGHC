@@ -243,31 +243,6 @@ public class EnhancedOcclusionCulling2D : MonoBehaviour
                                                       o.top >= cameraBottom & o.bottom <= cameraTop; // check vertical
                 o.theGameObject.SetActive(IsObjectVisibleInCastingCamera);
             }
-
-            else if (o.theGameObject && o.isHide)
-            {
-                bool checkStatic = overrideAllObjectsSettings ? overridingIsStaticAll : o.isStatic;
-
-                if (!checkStatic)
-                {
-                    o.center = GetCombinedBounds(o.theGameObject).center;
-                    o.right = o.center.x + o.sized.x;
-                    o.left = o.center.x - o.sized.x;
-                    o.top = o.center.y + o.sized.y;
-                    o.bottom = o.center.y - o.sized.y;
-                }
-
-                bool IsObjectVisibleInCastingCamera = o.right >= cameraLeft & o.left <= cameraRight & // check horizontal
-                                                      o.top >= cameraBottom & o.bottom <= cameraTop; // check vertical
-                if (IsObjectVisibleInCastingCamera)
-                {
-                    ShowMap.Instance.RevealObjects(false);
-                }
-                else
-                {
-                    ShowMap.Instance.RevealObjects(true);    
-                }
-            }
         }
     }
 

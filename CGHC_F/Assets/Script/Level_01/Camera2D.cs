@@ -157,6 +157,12 @@ public class Camera2D : MonoBehaviour
         CenterOnTarget(Target);
     }
 
+    public void UpdateCameraOffset(float newHorizontalOffset, float newVerticalOffset)
+    {
+        horizontalOffset = newHorizontalOffset;
+        verticalOffset = newVerticalOffset;
+    }
+
     private void OnEnable()
     {
         // +=：将 CenterOnTarget 方法添加为事件的监听器
