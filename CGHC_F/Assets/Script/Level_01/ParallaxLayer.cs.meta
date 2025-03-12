@@ -4,7 +4,7 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - Characterposition: {fileID: 5626036055634613949, guid: 850ec8a05d3ac054e872eb3dfc485243, type: 3}
+  - Characterposition: {fileID: 8652302939925893203, guid: aa06ba6792e97ca4685622c4fd6e8e11, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
