@@ -18,7 +18,6 @@ public class PillarMove : MonoBehaviour
     {
         if (points.Count < 1)
         {
-            Debug.LogWarning("至少需要两个点才能移动！");
             enabled = false;
             return;
         }
@@ -33,9 +32,9 @@ public class PillarMove : MonoBehaviour
 
         while (true)
         {
-            int nextIndex = (_currentIndex + 1) % points.Count; // 计算下一个目标点
+            int nextIndex = (_currentIndex + 1) % points.Count; 
 
-            if (_currentIndex == 0) // 只有从第一个点出发时等待
+            if (_currentIndex == 0) 
             {
                 yield return new WaitForSeconds(waitTime);
             }
@@ -46,7 +45,7 @@ public class PillarMove : MonoBehaviour
                 yield return null;
             }
 
-            _currentIndex = nextIndex; // 更新当前位置
+            _currentIndex = nextIndex; 
         }
     }
 

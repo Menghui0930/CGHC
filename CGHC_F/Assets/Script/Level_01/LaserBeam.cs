@@ -8,15 +8,15 @@ public class LaserBeam : MonoBehaviour
     public LayerMask obstacleLayer; 
 
     private LineRenderer lineRenderer;
-    private EdgeCollider2D edgeCollider; // 用于检测玩家碰撞
-    private Vector2[] colliderPoints = new Vector2[2]; // 存储 Collider 位置
+    private EdgeCollider2D edgeCollider; 
+    private Vector2[] colliderPoints = new Vector2[2]; 
 
     private void Awake()
     {
         lineRenderer = GetComponent<LineRenderer>();
         edgeCollider = GetComponent<EdgeCollider2D>();
 
-        edgeCollider.isTrigger = true; // 让 Collider 变成触发器
+        edgeCollider.isTrigger = true; 
     }
 
     void Update()

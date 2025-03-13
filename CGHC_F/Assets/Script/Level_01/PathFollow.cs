@@ -20,6 +20,8 @@ public class PathFollow : MonoBehaviour
     private Vector3 _previousPosition;
     private bool _isWaiting = false;
     private bool isleft = false;
+    [SerializeField] private bool isStone = false;
+    [SerializeField] private bool isScene3 = false;
 
     private void Start()
     {
@@ -38,15 +40,40 @@ public class PathFollow : MonoBehaviour
 
         if (points.Count < 1) 
         {
-            RotateObject();
-            return;
+            if(!isScene3)
+            {
+                RotateObject();
+                return;
+            }
+            else
+            {
+                return;
+            }
+           
         }
 
-        if (!_isWaiting)
-        {
-            Move();
-            RotateObject();
+        if (!isScene3)
+        { 
+                if (!_isWaiting)
+            {
+                Move();
+                RotateObject();
+
+                if (isStone)
+                {
+                    if (_currentPoint == 0)
+                    {
+                        Destroy(gameObject);
+                    }
+                }
+            }
         }
+        else
+        {
+            return ;
+        }
+
+        
     }
 
     private void RotateObject()
@@ -126,5 +153,21 @@ public class PathFollow : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void StartScene3(bool startGear)
+    {
+        isScene3 = startGear;
+    }
+
+    private void OnEnable()
+    {
+        CameraStopFollow.StartRound += StartScene3;
+    }
+
+    private void OnDisable()
+    {
+        CameraStopFollow.StartRound += StartScene3;
+
     }
 }
