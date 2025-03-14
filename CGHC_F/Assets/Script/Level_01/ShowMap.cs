@@ -1,25 +1,32 @@
 ﻿using UnityEngine;
-using System.Collections.Generic;
 using System.Collections;
+using System.Collections.Generic;
 
 public class ShowMap : MonoBehaviour
 {
-    public static ShowMap Instance;
-
-    public List<GameObject> objectsToHide = new List<GameObject>();
-    public float fadeDuration = 10.0f;
-
+    public List<GameObject> objectsToFade = new List<GameObject>(); // 需要改变透明度的物体
+    public float fadeDuration = 0.5f; // 渐变时间
     private Dictionary<GameObject, Coroutine> activeFades = new Dictionary<GameObject, Coroutine>();
 
-
-    private void Awake()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        Instance = this;
+        if (other.CompareTag("Player")) // 玩家进入
+        {
+            RevealObjects(false); // 显示区域
+        }
     }
 
-    public void RevealObjects(bool Hide)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        foreach (GameObject obj in objectsToHide) 
+        if (other.CompareTag("Player")) // 玩家离开
+        {
+            RevealObjects(true); // 还原透明度
+        }
+    }
+
+    public void RevealObjects(bool show)
+    {
+        foreach (GameObject obj in objectsToFade)
         {
             if (obj != null)
             {
@@ -29,12 +36,12 @@ public class ShowMap : MonoBehaviour
                     activeFades.Remove(obj);
                 }
 
-                // 启动新的淡入淡出协程，并记录它
                 SpriteRenderer sr = obj.GetComponent<SpriteRenderer>();
-                Coroutine fadeCoroutine = StartCoroutine(FadeSprite(sr, Hide));
-                activeFades[obj] = fadeCoroutine;
-
-
+                if (sr != null)
+                {
+                    Coroutine fadeCoroutine = StartCoroutine(FadeSprite(sr, show));
+                    activeFades[obj] = fadeCoroutine;
+                }
             }
         }
     }
@@ -42,7 +49,7 @@ public class ShowMap : MonoBehaviour
     private IEnumerator FadeSprite(SpriteRenderer sr, bool show)
     {
         float startAlpha = sr.color.a;
-        float targetAlpha = show ? 1f : 0f;
+        float targetAlpha = show ? 1f : 0.3f; // 变透明（0.3f 可以调整）
         float elapsedTime = 0f;
 
         while (elapsedTime < fadeDuration)
@@ -54,12 +61,10 @@ public class ShowMap : MonoBehaviour
             yield return null;
         }
 
-        // 确保最终 alpha 设为目标值
         Color finalColor = sr.color;
         finalColor.a = targetAlpha;
         sr.color = finalColor;
 
-        // 移除已完成的协程记录
         activeFades.Remove(sr.gameObject);
     }
 }

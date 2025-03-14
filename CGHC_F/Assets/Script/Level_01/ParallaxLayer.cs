@@ -5,7 +5,7 @@ public class ParallaxLayer : MonoBehaviour
     [SerializeField] float multiplier = 0.0f;
     [SerializeField] bool horizontalOnly = true;
 
-    public Transform Characterposition;
+    public GameObject Characterposition;
 
     private Vector3 startCameraPos;
     private Vector3 startPos;
@@ -13,7 +13,8 @@ public class ParallaxLayer : MonoBehaviour
 
     void Start()
     {
-        startCameraPos = Characterposition.position;
+        Characterposition = LevelManager.Instance.characterInstance;
+        startCameraPos = LevelManager.Instance.startCameraPos;
         startPos = transform.position - ((transform.position - startCameraPos) * multiplier);
     }
 
@@ -24,12 +25,12 @@ public class ParallaxLayer : MonoBehaviour
         if (horizontalOnly)
         {
             position = new Vector3(startPos.x, transform.position.y, transform.position.z);
-            position.x += multiplier * (Characterposition.position.x - startCameraPos.x);
+            position.x += multiplier * (Characterposition.transform.position.x - startCameraPos.x);
         }
         else
         {
             position = new Vector3(startPos.x, startPos.y, transform.position.z);
-            position += multiplier * (Characterposition.position - startCameraPos);
+            position += multiplier * (Characterposition.transform.position - startCameraPos);
         }
 
 
