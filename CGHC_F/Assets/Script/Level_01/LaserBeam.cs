@@ -42,7 +42,7 @@ public class LaserBeam : MonoBehaviour
         lineRenderer.SetPosition(0, firePoint.position);
         lineRenderer.SetPosition(1, endPoint);
 
-        // **更新 EdgeCollider2D**
+
         Vector2 localStart = transform.InverseTransformPoint(firePoint.position);
         Vector2 localEnd = transform.InverseTransformPoint(endPoint);
         edgeCollider.SetPoints(new System.Collections.Generic.List<Vector2> { localStart, localEnd });
@@ -52,7 +52,7 @@ public class LaserBeam : MonoBehaviour
         Debug.DrawLine(firePoint.position, endPoint, Color.red, 0.1f);
     }
 
-    // **玩家碰到激光时触发**
+ 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))

@@ -1,95 +1,49 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PathFollow : MonoBehaviour
 {
+    public enum MoveDirections
+    {
+        LEFT, RIGHT, UP, DOWN
+    }
+
     [Header("Settings")]
     [SerializeField] private float moveSpeed = 6f;
     [SerializeField] private float minDistanceToPoint = 0.1f;
 
-    [SerializeField] private float rotateSpeed = 90f; 
-    [SerializeField] private float waitTime = 3f; 
+    public float MoveSpeed => moveSpeed;
 
-    public List<Vector3> points = new List<Vector3>();
+    public MoveDirections Direction { get; set; }
+
+
+    public List<Vector3> points = new List<Vector3>();  // Get the Point list
 
     private bool _playing;
-    private bool _moved;
+    private bool _moved; 
     private int _currentPoint = 0;
     private Vector3 _currentPosition;
     private Vector3 _previousPosition;
-    private bool _isWaiting = false;
-    private bool isleft = false;
-    [SerializeField] private bool isStone = false;
-    [SerializeField] private bool isScene3 = false;
 
     private void Start()
     {
         _playing = true;
+
         _previousPosition = transform.position;
         _currentPosition = transform.position;
-        if (points.Count > 1) 
-        {
-            transform.position = _currentPosition + points[0];
-        }
-        
+        transform.position = _currentPosition + points[0];
     }
+
 
     private void Update()
     {
-
-        if (points.Count < 1) 
-        {
-            if(!isScene3)
-            {
-                RotateObject();
-                return;
-            }
-            else
-            {
-                return;
-            }
-           
-        }
-
-        if (!isScene3)
-        { 
-                if (!_isWaiting)
-            {
-                Move();
-                RotateObject();
-
-                if (isStone)
-                {
-                    if (_currentPoint == 0)
-                    {
-                        Destroy(gameObject);
-                    }
-                }
-            }
-        }
-        else
-        {
-            return ;
-        }
-
-        
-    }
-
-    private void RotateObject()
-    {
-        if (isleft)
-        {
-            transform.Rotate(0, 0, rotateSpeed * Time.deltaTime);
-        }
-        else
-        {
-            transform.Rotate(0, 0, -rotateSpeed * Time.deltaTime);
-        }
+        Move();
     }
 
     private void Move()
     {
+        // Set first position
         if (!_moved)
         {
             transform.position = _currentPosition + points[0];
@@ -97,31 +51,47 @@ public class PathFollow : MonoBehaviour
             _moved = true;
         }
 
+        // Move to next point
         transform.position = Vector3.MoveTowards(transform.position, _currentPosition + points[_currentPoint], Time.deltaTime * moveSpeed);
 
+        // Evaluate move to next point
         float distanceToNextPoint = Vector3.Distance(_currentPosition + points[_currentPoint], transform.position);
 
         if (distanceToNextPoint < minDistanceToPoint)
         {
             _previousPosition = transform.position;
             _currentPoint++;
+        }
 
-            if (_currentPoint == points.Count)
+        if (_previousPosition != Vector3.zero)
+        {
+
+            if (transform.position.x > _previousPosition.x)
             {
-                _currentPoint = 0;
+                Direction = MoveDirections.RIGHT;
             }
 
-            StartCoroutine(WaitBeforeMoving()); 
-        }
-    }
+            else if (transform.position.x < _previousPosition.x)
+            {
+                Direction = MoveDirections.LEFT;
+            }
 
-    private IEnumerator WaitBeforeMoving()
-    {
-        isleft = !isleft;
-        _isWaiting = true; 
-        yield return new WaitForSeconds(waitTime);
-        
-        _isWaiting = false; 
+            if (transform.position.y > _previousPosition.y)
+            {
+                Direction = MoveDirections.UP;
+            }
+            else if (transform.position.y < _previousPosition.y)
+            {
+                Direction = MoveDirections.DOWN;
+            }
+
+        }
+
+        // If we are on the last point, reset our position to the first one
+        if (_currentPoint == points.Count)
+        {
+            _currentPoint = 0;
+        }
     }
 
     private void OnDrawGizmos()
@@ -137,15 +107,18 @@ public class PathFollow : MonoBehaviour
             {
                 if (i < points.Count)
                 {
+                    // Draw points
                     Gizmos.color = Color.red;
                     Gizmos.DrawWireSphere(_currentPosition + points[i], 0.4f);
 
+                    // Draw lines
                     Gizmos.color = Color.black;
                     if (i < points.Count - 1)
                     {
                         Gizmos.DrawLine(_currentPosition + points[i], _currentPosition + points[i + 1]);
                     }
 
+                    // Draw line from last point to first point
                     if (i == points.Count - 1)
                     {
                         Gizmos.DrawLine(_currentPosition + points[i], _currentPosition + points[0]);
@@ -155,19 +128,4 @@ public class PathFollow : MonoBehaviour
         }
     }
 
-    private void StartScene3(bool startGear)
-    {
-        isScene3 = startGear;
-    }
-
-    private void OnEnable()
-    {
-        CameraStopFollow.StartRound += StartScene3;
-    }
-
-    private void OnDisable()
-    {
-        CameraStopFollow.StartRound += StartScene3;
-
-    }
 }

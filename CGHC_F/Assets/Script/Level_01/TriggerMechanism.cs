@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class TriggerMechanism : MonoBehaviour
 {
+    [Header("Num1")]
     [SerializeField] private float MechanicNum;
     [SerializeField] public GameObject Mechanic;
     [SerializeField] public GameObject Targetpoint;
     [SerializeField] public float Speed;
-    
-    private bool isPlayerNearby = false;
-    
 
+    private bool isPlayerNearby = false;
+
+    private void Start()
+    {
+
+    }
     void Update()
     {
         if (isPlayerNearby && Input.GetKeyDown(KeyCode.K))
@@ -19,15 +23,28 @@ public class TriggerMechanism : MonoBehaviour
             Debug.Log("Press K");
             ActivateMechanism(); 
         }
+
+        if (isPlayerNearby && MechanicNum == 3)
+        {
+            Debug.Log("start Mechanic 03");
+            StoneDrop stoneDrop = Mechanic.GetComponent<StoneDrop>();
+            stoneDrop.isStart = true;
+        }
     }
 
     private void ActivateMechanism()
     {
         if(MechanicNum == 1)
         {
-            Debug.Log("start Mechanic");
+            Debug.Log("start Mechanic 01");
             StartCoroutine(MoveToTarget());
         }
+        if (MechanicNum == 2)
+        {
+            Debug.Log("start Mechanic 02");
+            StartCoroutine(MoveToTarget());
+        }
+        
 
     }
 
