@@ -41,13 +41,13 @@ public class CameraStopFollow : MonoBehaviour
             if (collision.CompareTag("Player") && SceneNum == 1)
             {
                 Debug.Log("startStory");
-                Camera2D.instance.StopFollowStory(horizontalOffset, verticalOffset,horizontalSmoothness,verticalSmoothness,CameraTime);
+                L1_Camera2D.instance.StopFollowStory(horizontalOffset, verticalOffset,horizontalSmoothness,verticalSmoothness,CameraTime);
             }
 
             if (collision.CompareTag("Player") && SceneNum == 2)
             {
                 Debug.Log("startStory2");
-                Camera2D.instance.StopFollowStory(horizontalOffset, verticalOffset, horizontalSmoothness, verticalSmoothness, CameraTime);
+                L1_Camera2D.instance.StopFollowStory(horizontalOffset, verticalOffset, horizontalSmoothness, verticalSmoothness, CameraTime);
                 Catgo.SetTrigger("Scene1");
                 StartCoroutine(HideCate());
             }
@@ -63,7 +63,7 @@ public class CameraStopFollow : MonoBehaviour
             if (collision.CompareTag("Player") && SceneNum == 4)
             {
                 Debug.Log("startStory4");
-                Camera2D.instance.StopFollowStory(horizontalOffset, verticalOffset, horizontalSmoothness, verticalSmoothness, CameraTime);
+                L1_Camera2D.instance.StopFollowStory(horizontalOffset, verticalOffset, horizontalSmoothness, verticalSmoothness, CameraTime);
                 StartCoroutine(BeforeScene3());
             }
 

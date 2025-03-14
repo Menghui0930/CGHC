@@ -11,7 +11,7 @@ public class CameraOffset : MonoBehaviour
     {
         if (other.CompareTag("Player")) 
         {
-            Camera2D cameraScript = FindObjectOfType<Camera2D>();
+            L1_Camera2D cameraScript = FindObjectOfType<L1_Camera2D>();
             if (cameraScript != null)
             {
                 cameraScript.UpdateCameraOffset(newHorizontalOffset, newVerticalOffset);
