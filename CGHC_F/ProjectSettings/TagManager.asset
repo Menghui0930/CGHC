@@ -5,11 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - Meow
+  - Tilemap
+  - platform
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Map
   - Water
   - UI
   - Bg Blur
