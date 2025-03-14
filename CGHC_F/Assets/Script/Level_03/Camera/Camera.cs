@@ -89,6 +89,7 @@ public class Camera2D : MonoBehaviour
     // Centers our camera in the target position
     private void CenterOnTarget(PlayerMotor player)
     {
+        Debug.Log("start follow");
         //Vector3 targetPosition = GetTargetPosition(player);
         Target = player;
 
