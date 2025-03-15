@@ -1,13 +1,15 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.GraphicsBuffer;
 
 public class CameraStopFollow : MonoBehaviour
 {
     public static Action<bool> StartRound;
 
+    [SerializeField] private Camera2D Camera;
     [SerializeField] private float SceneNum = 1;
 
     [Header("Scene1")]
@@ -30,6 +32,8 @@ public class CameraStopFollow : MonoBehaviour
     private Animator Catgo2;
     [SerializeField] private float Scene3Delay;
 
+    // The target reference    
+    public PlayerMotor Target;
 
     private bool use = true;
 
@@ -41,13 +45,15 @@ public class CameraStopFollow : MonoBehaviour
             if (collision.CompareTag("Player") && SceneNum == 1)
             {
                 Debug.Log("startStory");
-                L1_Camera2D.instance.StopFollowStory(horizontalOffset, verticalOffset,horizontalSmoothness,verticalSmoothness,CameraTime);
+                //Camera.StopFollow(Target);
+                StartCoroutine(StartCameraStory(horizontalOffset, verticalOffset, horizontalSmoothness, verticalSmoothness, CameraTime));
             }
 
             if (collision.CompareTag("Player") && SceneNum == 2)
             {
                 Debug.Log("startStory2");
-                L1_Camera2D.instance.StopFollowStory(horizontalOffset, verticalOffset, horizontalSmoothness, verticalSmoothness, CameraTime);
+                //Camera.StopFollow(Target);
+                StartCoroutine(StartCameraStory(horizontalOffset, verticalOffset, horizontalSmoothness, verticalSmoothness, CameraTime));
                 Catgo.SetTrigger("Scene1");
                 StartCoroutine(HideCate());
             }
@@ -63,7 +69,7 @@ public class CameraStopFollow : MonoBehaviour
             if (collision.CompareTag("Player") && SceneNum == 4)
             {
                 Debug.Log("startStory4");
-                L1_Camera2D.instance.StopFollowStory(horizontalOffset, verticalOffset, horizontalSmoothness, verticalSmoothness, CameraTime);
+                StartCoroutine(StartCameraStory(horizontalOffset, verticalOffset, horizontalSmoothness, verticalSmoothness, CameraTime));
                 StartCoroutine(BeforeScene3());
             }
 
@@ -77,12 +83,50 @@ public class CameraStopFollow : MonoBehaviour
         
     }
 
+    public void StopFollowStory(float newHorizontalOffset, float newVerticalOffset, float newHorizontalSmoothness, float newverticalSmoothness, float CameraTime)
+    {
+        //Camera.StopFollow(Target);
+        StartCoroutine(StartCameraStory(newHorizontalOffset, newVerticalOffset, newHorizontalSmoothness, newverticalSmoothness, CameraTime));
+    }
+
+    public IEnumerator StartCameraStory(float newHorizontalOffset, float newVerticalOffset, float newHorizontalSmoothness, float newverticalSmoothness, float CameraTime)
+    {
+        float originalHorizontalOffset = Camera.horizontalOffset;
+        float originalVerticalOffset = Camera.verticalOffset;
+        Camera.horizontalOffset = newHorizontalOffset;
+        Camera.verticalOffset = newVerticalOffset;
+        Camera.horizontalSmoothness = newHorizontalSmoothness;
+        Camera.verticalSmoothness = newverticalSmoothness;
+
+        yield return new WaitForSeconds(CameraTime);
+        Camera.horizontalOffset = originalHorizontalOffset;
+        Camera.verticalOffset = originalVerticalOffset;
+
+        float duration = 5f;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / duration;
+
+            Camera.horizontalSmoothness = Mathf.Lerp(newHorizontalSmoothness, 3f, t);
+            Camera.verticalSmoothness = Mathf.Lerp(newverticalSmoothness, 3f, t);
+
+            yield return null;
+        }
+// Camera.StartFollowing(Target);
+
+        Camera.horizontalSmoothness = 3f;
+        Camera.verticalSmoothness = 3f;
+
+    }
+
     private IEnumerator HideCate()
     {
         yield return new WaitForSeconds(CameraTime);
         Catgo.SetTrigger("EndScene");
         Destroy(Meow);
-
     }
 
     private IEnumerator BeforeScene3()
@@ -95,4 +139,5 @@ public class CameraStopFollow : MonoBehaviour
         StartRound?.Invoke(false);
 
     }
+
 }

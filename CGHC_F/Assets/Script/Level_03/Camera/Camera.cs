@@ -9,14 +9,14 @@ public class Camera2D : MonoBehaviour
     [SerializeField] private bool verticalFollow = true;
 
     [Header("Horizontal")]
-    [SerializeField][Range(0, 1)] private float horizontalInfluence = 1f;
-    [SerializeField] private float horizontalOffset = 0f;
-    [SerializeField] private float horizontalSmoothness = 3f;
+    [SerializeField][Range(0, 1)] public float horizontalInfluence = 1f;
+    [SerializeField] public float horizontalOffset = 0f;
+    [SerializeField] public float horizontalSmoothness = 3f;
 
     [Header("Vertical")]
-    [SerializeField][Range(0, 1)] private float verticalInfluence = 1f;
-    [SerializeField] private float verticalOffset = 0f;
-    [SerializeField] private float verticalSmoothness = 3f;
+    [SerializeField][Range(0, 1)] public float verticalInfluence = 1f;
+    [SerializeField] public float verticalOffset = 0f;
+    [SerializeField] public float verticalSmoothness = 3f;
 
     // The target reference    
     public PlayerMotor Target { get; set; }
@@ -89,7 +89,6 @@ public class Camera2D : MonoBehaviour
     // Centers our camera in the target position
     private void CenterOnTarget(PlayerMotor player)
     {
-        Debug.Log("start follow");
         //Vector3 targetPosition = GetTargetPosition(player);
         Target = player;
 
@@ -101,16 +100,28 @@ public class Camera2D : MonoBehaviour
     }
 
     // Reset the target reference
-    private void StopFollow(PlayerMotor player)
+    public void StopFollow(PlayerMotor player)
     {
         Target = null;
     }
 
     // Gets Target reference and center our camera
-    private void StartFollowing(PlayerMotor player)
+    public void StartFollowing(PlayerMotor player)
     {
+        Debug.Log("Center Target");
         Target = player;
         CenterOnTarget(Target);
+    }
+
+    public void UpdateCameraOffset(float newHorizontalOffset, float newVerticalOffset)
+    {
+        if (Target == null)
+        {
+            return;
+        }
+        horizontalOffset = newHorizontalOffset;
+        verticalOffset = newVerticalOffset;
+        Debug.Log("Offset");
     }
 
     private void OnDrawGizmos()
@@ -125,6 +136,7 @@ public class Camera2D : MonoBehaviour
         LevelManager.OnPlayerSpawn += CenterOnTarget;
         Health.OnDeath += StopFollow;
         Health.OnRevive += StartFollowing;
+        LevelManager.LevelChange += StopFollow;
     }
 
     private void OnDisable()
@@ -132,6 +144,7 @@ public class Camera2D : MonoBehaviour
         LevelManager.OnPlayerSpawn -= CenterOnTarget;
         Health.OnDeath -= StopFollow;
         Health.OnRevive -= StartFollowing;
+        LevelManager.LevelChange -= StopFollow;
     }
 }
 

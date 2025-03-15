@@ -24,8 +24,8 @@ public class PlayerMotor : MonoBehaviour
         }
     }
 
-    public void SpawnPlayer(Transform newPosition)
+    public void SpawnPlayer(Vector3 newPosition)
     {
-        transform.position = newPosition.position;
+        transform.position = new Vector3(newPosition.x,newPosition.y,0);
     }
 }

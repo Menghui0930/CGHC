@@ -168,8 +168,6 @@ public class L1_Camera2D : MonoBehaviour
         horizontalSmoothness = 3f;
         verticalSmoothness = 3f;
 
-        
-
     }
 
 

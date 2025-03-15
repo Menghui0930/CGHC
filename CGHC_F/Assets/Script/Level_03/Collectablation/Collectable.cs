@@ -30,7 +30,7 @@ public class Collectable : MonoBehaviour
     // Override to add custom colletable behaviour
     protected virtual void Collect()
     {
-        //Debug.Log("This is working!!!");
+        Debug.Log("This is working!!!");
     }
 
     // Disable the spriteRenderer and collider of the Collectable

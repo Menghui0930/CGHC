@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public static Action<int> OnLifesChanged;
+    public static Action<int,string> OnLifesChanged;
     public static Action<PlayerMotor> OnDeath;
     public static Action<PlayerMotor> OnRevive;
 
@@ -18,6 +18,8 @@ public class Health : MonoBehaviour
 
     private int _maxLifes;
     private int _currentLifes;
+
+    private string status;
 
     private void Awake()
     {
@@ -44,7 +46,7 @@ public class Health : MonoBehaviour
         {
             _currentLifes = _maxLifes;
         }
-
+        status = "Heal";
         UpdateLifesUI();
     }
 
@@ -56,13 +58,14 @@ public class Health : MonoBehaviour
             _currentLifes = 0;
             OnDeath?.Invoke(gameObject.GetComponent<PlayerMotor>());
         }
-
+        status = "Hurt";
         UpdateLifesUI();
     }
 
     public void KillPlayer()
     {
         _currentLifes = 0;
+        status = "Hurt";
         UpdateLifesUI();
         OnDeath?.Invoke(gameObject.GetComponent<PlayerMotor>());
     }
@@ -70,17 +73,20 @@ public class Health : MonoBehaviour
     public void ResetLife()
     {
         _currentLifes = lifes;
+        status = "Heal";
         UpdateLifesUI();
     }
 
     public void Revive()
     {
+        // Camera Follow
         OnRevive?.Invoke(gameObject.GetComponent<PlayerMotor>());
     }
 
     private void UpdateLifesUI()
     {
-        OnLifesChanged?.Invoke(_currentLifes);
+        // UIManager
+        OnLifesChanged?.Invoke(_currentLifes,status);
     }
 
     
