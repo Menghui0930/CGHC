@@ -13,7 +13,7 @@ TagManager:
   - Water
   - UI
   - Bg Blur
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -71,4 +71,10 @@ TagManager:
     locked: 0
   - name: Front
     uniqueID: 3081937947
+    locked: 0
+  - name: 0
+    uniqueID: 1763564711
+    locked: 0
+  - name: Enemy
+    uniqueID: 1971243863
     locked: 0

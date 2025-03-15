@@ -14,7 +14,7 @@ public class CameraOffset : MonoBehaviour
             Camera2D cameraScript = FindObjectOfType<Camera2D>();
             if (cameraScript != null)
             {
-                cameraScript.UpdateCameraOffset(newHorizontalOffset, newVerticalOffset);
+                //cameraScript.UpdateCameraOffset(newHorizontalOffset, newVerticalOffset);
             }
         }
     }

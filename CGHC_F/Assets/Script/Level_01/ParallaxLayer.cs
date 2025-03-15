@@ -13,8 +13,8 @@ public class ParallaxLayer : MonoBehaviour
 
     void Start()
     {
-        Characterposition = LevelManager.Instance.characterInstance;
-        startCameraPos = LevelManager.Instance.startCameraPos;
+        //Characterposition = LevelManager.Instance.characterInstance;
+        //startCameraPos = LevelManager.Instance.startCameraPos;
         startPos = transform.position - ((transform.position - startCameraPos) * multiplier);
     }
 

@@ -4,6 +4,22 @@ using UnityEngine;
 
 public class PathFollow : MonoBehaviour
 {
+    public enum MoveDirections
+    {
+        LEFT,
+        RIGHT
+    }
+
+    public MoveDirections Direction
+    {
+        get
+        {
+            return (_currentPoint > 0 && points[_currentPoint].x > points[_currentPoint - 1].x)
+                ? MoveDirections.RIGHT
+                : MoveDirections.LEFT;
+        }
+    }
+
     [Header("Settings")]
     [SerializeField] private float moveSpeed = 6f;
     [SerializeField] private float minDistanceToPoint = 0.1f;
