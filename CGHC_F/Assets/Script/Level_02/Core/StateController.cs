@@ -12,6 +12,13 @@ public class StateController : MonoBehaviour
     // Reference of the Path Follow
     public PathFollow Path { get; set; }
 
+    // Player Reference
+    public PlayerMotor Target { get; set; }
+
+    private Vector3 _radiusStartPosition;
+    private float _detectionRadius;
+    private bool _playerDetected;
+
     private void Start()
     {
         Path = GetComponent<PathFollow>();
@@ -36,6 +43,21 @@ public class StateController : MonoBehaviour
     {
         Debug.DrawLine(startPosition, startPosition + direction * rayLenght, playerDetected ? Color.green : Color.red);
     }
+
+    // Get the detection circle data we want to create
+    public void SetRediusDetectionValues(float radius, Vector3 startPosition, bool playerDetection)
+    {
+        _detectionRadius = radius;
+        _radiusStartPosition = startPosition;
+        _playerDetected = playerDetection;
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (_detectionRadius > 0)
+        {
+            Gizmos.color = _playerDetected ? Color.green : Color.red;
+            Gizmos.DrawWireSphere(_radiusStartPosition, _detectionRadius);
+        }
+    }
 }
-
-
