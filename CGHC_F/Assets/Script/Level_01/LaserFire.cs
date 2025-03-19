@@ -133,7 +133,7 @@ public class LaserFire : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("Touch Player");
+            Health.Instance.LoseLife();
         }
     }
 }

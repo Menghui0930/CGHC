@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2888099639802697450}
   - component: {fileID: 3657032874316943964}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: WoodBridge_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5441966316228267685}
   - component: {fileID: 3384960497531690335}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: WoodBridge_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 8678266210890575280}
   - component: {fileID: 4467132347767588940}
   - component: {fileID: 4413217154353378782}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MovingBridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}

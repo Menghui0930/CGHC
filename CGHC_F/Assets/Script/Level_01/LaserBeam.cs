@@ -57,7 +57,7 @@ public class LaserBeam : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Player hit by laser!");
+            Health.Instance.LoseLife();
         }
     }
 

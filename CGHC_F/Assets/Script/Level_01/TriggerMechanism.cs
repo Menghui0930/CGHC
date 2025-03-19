@@ -10,6 +10,9 @@ public class TriggerMechanism : MonoBehaviour
     [SerializeField] public GameObject Targetpoint;
     [SerializeField] public float Speed;
 
+    [SerializeField] public GameObject Target;
+    [SerializeField] public bool isLaser;
+
     private bool isPlayerNearby = false;
 
     private void Start()
@@ -21,7 +24,23 @@ public class TriggerMechanism : MonoBehaviour
         if (isPlayerNearby && Input.GetKeyDown(KeyCode.K))
         {
             Debug.Log("Press K");
-            ActivateMechanism(); 
+            if (isLaser)
+            {
+                if (Target.GetComponent<LineRenderer>().enabled)
+                {
+                    Target.GetComponent<LineRenderer>().enabled = false;
+                    Target.GetComponent<EdgeCollider2D>().enabled = false;
+                }
+                else
+                {
+                    Target.GetComponent<LineRenderer>().enabled = true;
+                    Target.GetComponent<EdgeCollider2D>().enabled = true;
+                }
+
+
+            }
+            else
+                ActivateMechanism(); 
         }
 
         if (isPlayerNearby && MechanicNum == 3)
@@ -55,7 +74,7 @@ public class TriggerMechanism : MonoBehaviour
         while (Vector3.Distance(Mechanic.transform.position, Targetpoint.transform.position) > 0.1f)
         {
             Mechanic.transform.position = Vector3.MoveTowards(Mechanic.transform.position, Targetpoint.transform.position, Time.deltaTime * Speed);
-            yield return null; // 等待下一帧
+            yield return null; 
         }
 
         Debug.Log("Mechanic Reached Target!");

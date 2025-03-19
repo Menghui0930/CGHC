@@ -147,7 +147,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.2952118, y: -0.23457336}
@@ -207,6 +207,9 @@ MonoBehaviour:
   collideWith:
     serializedVersion: 2
     m_Bits: 8
+  slopeLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   verticalRayAmount: 4
   horizontalRayAmount: 4
 --- !u!114 &2683915166425630207
@@ -289,6 +292,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifes: 5
+  invincibilityDuration: 2
+  blinkInterval: 0.2
 --- !u!114 &1999669222349179556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,7 +321,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 3870812900283592968}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: f51db2f3852539f4d94e3f1d75b723e1, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -339,8 +344,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.3036499, y: -0.25619507}
-  m_Size: {x: 1.2103271, y: 2.1401978}
+  m_Offset: {x: -0.3036499, y: -0.27964783}
+  m_Size: {x: 1.2103271, y: 2.1871033}
   m_Direction: 0
 --- !u!1 &8719937070428080674
 GameObject:

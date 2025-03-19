@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
@@ -14,6 +15,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private Transform levelStartPoint;
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private float waitToRespawn;
+    [SerializeField] private float moveSpeed = 3f; 
     private Vector3 SpawnPoint;
 
     public GameObject Player;
@@ -90,6 +92,7 @@ public class LevelManager : MonoBehaviour
     {
         Debug.Log("ExitLevel");
         StartCoroutine(EndLevelCo(levelToload));
+        StartCoroutine(MovingFace());
     }
 
     private IEnumerator EndLevelCo(string LevelToload)
@@ -100,6 +103,25 @@ public class LevelManager : MonoBehaviour
         UIManager.Instance.FadeToBlack();
         yield return new WaitForSeconds((1f / UIManager.Instance.fadeSpeed) + .25f);
         SceneManager.LoadScene(LevelToload);
+    }
+
+    private IEnumerator MovingFace()
+    {
+        float moveTime = 3f;  
+        float elapsedTime = 0f;
+
+        PlayerController Player_controller = Player.GetComponent<PlayerController>();
+        Animator animator = Player.GetComponent<Animator>();
+        
+        float moveDirection = Player_controller.FacingRight ? 1f : -1f;
+
+        while (elapsedTime < moveTime)
+        {
+            animator.SetBool("Run", true);
+            elapsedTime += Time.deltaTime;
+            Player.transform.position += new Vector3(moveDirection * moveSpeed * Time.deltaTime, 0, 0);
+            yield return null;
+        }
     }
 
     private void OnEnable()

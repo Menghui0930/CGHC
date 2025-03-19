@@ -6,9 +6,13 @@ public class CCoin : Collectable
 {
     [Header("Settings")]
     [SerializeField] private int amountToAdd = 1;
+    private bool isCollected = false; 
 
     protected override void Collect()
     {
+        if (isCollected) return;
+        isCollected = true;
+        Debug.Log("Collect Called!");
         AddCoin();
     }
 
