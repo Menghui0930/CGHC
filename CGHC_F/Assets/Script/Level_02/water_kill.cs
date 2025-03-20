@@ -15,7 +15,7 @@ public class Water : MonoBehaviour
     }
     private void PlayerDie()
     {
-        Health.Instance.KillPlayer();
+        //Health.Instance.KillPlayer();
 
     }
 }

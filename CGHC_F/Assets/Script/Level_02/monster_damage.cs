@@ -15,7 +15,7 @@ public class rock_damage : MonoBehaviour
     }
     private void DamagePlayer()
     {
-        Health.Instance.LoseLife();
+        //Health.Instance.LoseLife();
 
     }
 }
